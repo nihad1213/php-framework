@@ -15,4 +15,5 @@ return array(
     'HttpSoft\\Emitter\\' => array($vendorDir . '/httpsoft/http-emitter/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
+    'App\\' => array($baseDir . '/src'),
 );

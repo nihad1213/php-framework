@@ -7,6 +7,7 @@ use GuzzleHttp\Psr7\Utils;
 use GuzzleHttp\Psr7\Response;
 use HttpSoft\Emitter\SapiEmitter;
 use GuzzleHttp\Psr7\ServerRequest;
+use App\Controllers\HomeController;
 
 ini_set("display_errors", 1);
 
@@ -16,13 +17,7 @@ $request = ServerRequest::fromGlobals();
 
 $router = new Router();
 
-$router->map("GET", "/", function () {
-    $stream = Utils::streamFor("HomePage");
-    $response = new Response;
-    $response = $response->withBody($stream);
-
-    return $response;
-});
+$router->map("GET", "/", [HomeController::class, "index"]);
 
 $response = $router->dispatch($request);
 
