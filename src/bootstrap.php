@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-use GuzzleHttp\Psr7\ServerRequest;
-use GuzzleHttp\Psr7\Response;
+use League\Route\Router;
 use GuzzleHttp\Psr7\Utils;
+use GuzzleHttp\Psr7\Response;
 use HttpSoft\Emitter\SapiEmitter;
+use GuzzleHttp\Psr7\ServerRequest;
 
 ini_set("display_errors", 1);
 
@@ -13,27 +14,17 @@ require dirname(__DIR__) . "/vendor/autoload.php";
 
 $request = ServerRequest::fromGlobals();
 
-$path = $request->getUri()->getPath();
+$router = new Router();
 
-$page = match ($path) {
-    "/" => "home",
-    "/show" => "show",
-    "/list" => "list",
-};
+$router->map("GET", "/", function () {
+    $stream = Utils::streamFor("HomePage");
+    $response = new Response;
+    $response = $response->withBody($stream);
 
-ob_start();
+    return $response;
+});
 
-require dirname(__DIR__) . "/{$page}.php";
-
-$content = ob_get_clean();
-
-$stream = Utils::streamFor($content);
-
-$response = new Response;
-
-$response = $response->withStatus(418)
-                     ->withHeader("X-Powered-By", "PHP")
-                     ->withBody($stream);
+$response = $router->dispatch($request);
 
 $emitter = new SapiEmitter;
 
