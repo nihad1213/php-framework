@@ -13,7 +13,13 @@ require dirname(__DIR__) . "/vendor/autoload.php";
 
 $request = ServerRequest::fromGlobals();
 
-$page = $request->getQueryParams()["page"];
+$path = $request->getUri()->getPath();
+
+$page = match ($path) {
+    "/" => "home",
+    "/show" => "show",
+    "/list" => "list",
+};
 
 ob_start();
 
