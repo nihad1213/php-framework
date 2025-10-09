@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '90ec57bf1e180d52a605d809fd61340a020b930c',
+        'reference' => 'd057e40d70ba742b44c1e73901c84445afe5b667',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '90ec57bf1e180d52a605d809fd61340a020b930c',
+            'reference' => 'd057e40d70ba742b44c1e73901c84445afe5b667',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -64,6 +64,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'nyholm/psr7' => array(
+            'pretty_version' => '1.8.2',
+            'version' => '1.8.2.0',
+            'reference' => 'a71f2b11690f4b24d099d6b16690a90ae14fc6f3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../nyholm/psr7',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'orno/http' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -74,6 +83,12 @@
             'dev_requirement' => false,
             'replaced' => array(
                 0 => '~1.0',
+            ),
+        ),
+        'php-http/message-factory-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
             ),
         ),
         'psr/container' => array(

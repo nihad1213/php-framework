@@ -19,6 +19,10 @@ class ComposerStaticInitbea11fc42c8d11887e4378d210a160bb
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
+        'N' => 
+        array (
+            'Nyholm\\Psr7\\' => 12,
+        ),
         'L' => 
         array (
             'League\\Route\\' => 13,
@@ -60,6 +64,10 @@ class ComposerStaticInitbea11fc42c8d11887e4378d210a160bb
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Nyholm\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nyholm/psr7/src',
         ),
         'League\\Route\\' => 
         array (
