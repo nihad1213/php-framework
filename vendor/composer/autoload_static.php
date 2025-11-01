@@ -4,11 +4,12 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitbea11fc42c8d11887e4378d210a160bb
+class ComposerStaticInite5ee3612522a295574fce2afdc4c4d81
 {
     public static $files = array (
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'b33e3d135e5d9e47d845c576147bda89' => __DIR__ . '/..' . '/php-di/php-di/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -28,6 +29,10 @@ class ComposerStaticInitbea11fc42c8d11887e4378d210a160bb
             'League\\Route\\' => 13,
             'Laravel\\SerializableClosure\\' => 28,
         ),
+        'I' => 
+        array (
+            'Invoker\\' => 8,
+        ),
         'H' => 
         array (
             'HttpSoft\\Emitter\\' => 17,
@@ -39,6 +44,10 @@ class ComposerStaticInitbea11fc42c8d11887e4378d210a160bb
         'F' => 
         array (
             'FastRoute\\' => 10,
+        ),
+        'D' => 
+        array (
+            'DI\\' => 3,
         ),
         'A' => 
         array (
@@ -77,6 +86,10 @@ class ComposerStaticInitbea11fc42c8d11887e4378d210a160bb
         array (
             0 => __DIR__ . '/..' . '/laravel/serializable-closure/src',
         ),
+        'Invoker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-di/invoker/src',
+        ),
         'HttpSoft\\Emitter\\' => 
         array (
             0 => __DIR__ . '/..' . '/httpsoft/http-emitter/src',
@@ -88,6 +101,10 @@ class ComposerStaticInitbea11fc42c8d11887e4378d210a160bb
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'DI\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-di/php-di/src',
         ),
         'App\\' => 
         array (
@@ -102,9 +119,9 @@ class ComposerStaticInitbea11fc42c8d11887e4378d210a160bb
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitbea11fc42c8d11887e4378d210a160bb::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitbea11fc42c8d11887e4378d210a160bb::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitbea11fc42c8d11887e4378d210a160bb::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite5ee3612522a295574fce2afdc4c4d81::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite5ee3612522a295574fce2afdc4c4d81::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInite5ee3612522a295574fce2afdc4c4d81::$classMap;
 
         }, null, ClassLoader::class);
     }
