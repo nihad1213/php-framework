@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
-</head>
-<body>
-    <h1>This is homepage</h1>
-</body>
-</html>
+<?php $this->layout("layout", ["title" => "Homepage"]) ?>
+
+<h1>Welcome</h1>
+
+<p>Hello <?= $this->e($name) ?></p>
