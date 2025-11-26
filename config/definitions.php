@@ -19,12 +19,12 @@ return [
         $config = ORMSetup::createAttributeMetadataConfiguration($paths, true);
 
         $params = [
-            "driver" => "pdo_mysql",
-            "host" => "127.0.0.1",
-            "dbname" => "shop_db",
-            "port" => 3307, 
-            "user" => "root",
-            "password" => ""
+            "driver"   => "pdo_mysql",
+            "host"     => $_ENV['DB_HOST'],
+            "dbname"   => $_ENV['DB_DATABASE'],
+            "port"     => $_ENV['DB_PORT'],
+            "user"     => $_ENV['DB_USERNAME'],
+            "password" => $_ENV['DB_PASSWORD']
         ];
 
         $connection = DriverManager::getConnection($params, $config);

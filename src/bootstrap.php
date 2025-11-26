@@ -13,6 +13,9 @@ use League\Route\Strategy\ApplicationStrategy;
 
 require APP_ROOT . "/vendor/autoload.php";
 
+$dotenv = Dotenv\Dotenv::createImmutable(APP_ROOT);
+$dotenv->load();
+
 $request = ServerRequest::fromGlobals();
 
 $builder = new DI\ContainerBuilder;
