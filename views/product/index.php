@@ -13,9 +13,9 @@
     <tbody>
         <?php foreach($products as $product): ?>
             <tr>
-                <td><?= $this->e($product->name) ?></td>
-                <td><?= $this->e($product->description) ?></td>
-                <td><?= $product->size ?></td>
+                <td><?= $this->e($product->getName()) ?></td>
+                <td><?= $this->e($product->getDescription()) ?></td>
+                <td><?= $product->getSize() ?></td>
             </tr>
         <?php endforeach ?>
     </tbody>
