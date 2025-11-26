@@ -27,29 +27,7 @@ $request = ServerRequest::fromGlobals();
 
 $builder = new DI\ContainerBuilder;
 
-$builder->addDefinitions([
-    ResponseFactoryInterface::class => DI\create(HttpFactory::class),
-    RendererInterface::class => DI\create(PlatesRenderer::class),
-    EntityManagerInterface::class => function () {
-
-        $paths = [dirname(__DIR__) . "/src/Entities"];
-
-        $config = ORMSetup::createAttributeMetadataConfiguration($paths, true);
-
-        $params = [
-            "driver" => "pdo_mysql",
-            "host" => "127.0.0.1",
-            "dbname" => "shop_db",
-            "port" => 3307, 
-            "user" => "root",
-            "password" => ""
-        ];
-
-        $connection = DriverManager::getConnection($params, $config);
-
-        return new EntityManager($connection, $config);
-    }
-]);
+$builder->addDefinitions(dirname(__DIR__) . '/config/definitions.php');
 
 $builder->useAttributes(true);
 
@@ -61,13 +39,8 @@ $strategy = new ApplicationStrategy;
 $strategy->setContainer($container);
 $router->setStrategy($strategy);
 
-$router->get("/", [HomeController::class, "index"]);
-
-$router->get("/products", [ProductController::class, "index"]);
-
-$router->get("/product/{id:number}", [ProductController::class, "show"]);
-
-$router->map(["GET", "POST"], "/product/new", [ProductController::class, "create"]);
+$routes = require dirname(__DIR__) . '/config/routes.php';
+$routes($router);
 
 $response = $router->dispatch($request);
 
